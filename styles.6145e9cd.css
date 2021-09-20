@@ -376,9 +376,10 @@ body{
     }       
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1200px){
+@media screen and (min-width: 1024px) and (max-width: 1440px){
     .container{
         padding: 90px;
+        max-width: 1440;
     }  
 
     .form-container{
@@ -413,6 +414,10 @@ body{
         margin-top: 0;
         margin-bottom: 20px;
         margin-left: 5px;
+    }
+
+    .payment-form, .delivery-form, .validation-form{
+        width: 640px;
     }
 
     .list{
