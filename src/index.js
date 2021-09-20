@@ -1,4 +1,4 @@
-import './styles'
+
 const refs = {
     listItemCash: document.querySelector('.list-item.cash'),
     listItemCard: document.querySelector('.list-item.card'),
@@ -71,7 +71,7 @@ switch(target.id){
 }
 
 function onSubmitBtnClick(event){
-    // event.preventDefault()
+    event.preventDefault()
 
     for (let i = 0; i < refs.formInput.length; i++) {
         if(!refs.formInput[i].value){
