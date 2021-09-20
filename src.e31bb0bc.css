@@ -180,7 +180,7 @@ body{
     
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px){
+@media screen and (min-width: 768px) and (max-width: 1023px){
     .container{
         padding: 90px;
     }
@@ -376,12 +376,14 @@ body{
     }       
 }
 
-@media screen and(min-width: 1024px) and(max-width: 1440px){
+@media screen and (min-width: 1024px) and (max-width: 1440px){
     .container{
         padding: 90px;
-    }
+        /* max-width: 1440; */
+    }  
 
     .form-container{
+        max-width: 1260px;
         background: var(--active-item-text);
         padding-top: 40px;
         padding-left: 50px;
@@ -415,6 +417,10 @@ body{
         margin-left: 5px;
     }
 
+    .payment-form, .delivery-form, .validation-form{
+        width: 640px;
+    }
+
     .list{
         margin-top: 0;
         list-style: none;
@@ -428,7 +434,7 @@ body{
     }
 
     .list-item{
-        min-width: 311px;
+        width: 311px;
         height: 62px;
         background: var(--list-item-bg);
         display: flex;
@@ -449,7 +455,7 @@ body{
     }
 
     .list.delivery .list-item{
-        width: 239px;
+        width: 311px;
     }
 
     .list.delivery .list-item:nth-child(3), .list .list-item:nth-child(4){
@@ -480,31 +486,32 @@ body{
     }
 
     .form-item{
-        width: 240px;
+        width: 311px;
     }
 
     .form-item:first-child{
-        margin-right: 250px;
+        margin-right: 400px;
     }
 
     .form-item:nth-child(2), .form-item:nth-child(4){
-        margin-right: 10px;
+        margin-right: 15px;
     }
 
     .form-input{
-        width: 218px;
+        box-sizing: border-box;
+        width: 311px;
         border: 1px solid var(--border);
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        height: 25px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        height: 40px;
     }
 
     .form-label{
         position: relative;
         top: -30px;
-        left: 10px;
+        left: 16px;
         font-family: Raleway;
         color: var(--text);
         font-size: 14px;
@@ -519,28 +526,29 @@ body{
     .form-input:focus + .form-label,
     .form-input:not(:placeholder-shown) + .form-label {
         position: relative;
-        top: -47px;
-        left: 15px;
+        top: -50px;
+        left: 16px;
         background: var(--active-item-text);
         transition: 500ms var(--timing-function);
         color: var(--text);
     }
 
     .textarea{
-        width: 240px;
-        height: 95px;
+        box-sizing: border-box;
+        width: 637px;
+        height: 105px;
         resize: none;
         border: 1px solid var(--border); 
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 16px;
+        padding-right: 16px;
         padding-top: 10px;
         box-sizing: border-box;
     }
 
     .comment{
         position: relative;
-        top: -90px;
-        left: 10px;
+        top: -100px;
+        left: 16px;
         font-family: Raleway;
         color: var(--text);
         font-size: 14px;
@@ -550,16 +558,18 @@ body{
     .textarea:focus + .comment,
     .textarea:not(:placeholder-shown) + .comment{
         position: relative;
-        top: -108px;
-        left: 15px;
+        top: -120px;
+        left: 16px;
         background: var(--active-item-text);
         color: var(--text);
         transition: 500ms var(--timing-function);
     }
 
     .submitBtn{
-        width: 240px;
+        box-sizing: border-box;
+        width: 352px;
         height: 45px;
+        padding: 0;
         border: none;
         background-color: var(--submit-btn);
         font-family: Raleway;
