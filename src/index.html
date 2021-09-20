@@ -11,74 +11,75 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="heading">Оформление заказа</h1>
-        <form class="payment-form">
-            <p class="title">Выберете тип оплаты:</p>
-            <ul class="list">
-                <li class="list-item cash">
-                    <input class="radio" id="cash" type="radio" name="payment">
-                    <label class="radioBtn" for="cash">Наличный расчёт</label>
-                </li>
-                <li class="list-item card">
-                    <input class="radio" id="card" type="radio" name="payment">
-                    <label class="radioBtn" for="card">Оплата на карту</label>
-                    </label>
-                </li>
-            </ul>    
-        </form>
-        <p class="title">Выберете тип доставки:</p>
-        <form class="delivery-form">
-            <ul class="list delivery">
-                <li class="list-item delivery-type-takeAway">                   
-                    <input class="radio" id="takeAway" type="radio" name="delivery">
-                    <label class="radioBtn" for="takeAway">Самовывоз</label>  
-            </li>
-                <li class="list-item delivery-type-courier">
-                    <input class="radio" id="courier" type="radio" name="delivery">
-                    <label class="radioBtn" for="courier">Курьером по Киеву</label>
-            </li>
-                <li class="list-item delivery-type-newPostDepartment">
-                    <input class="radio" id="newPostDepartment" type="radio" name="delivery">
-                    <label class="radioBtn" for="newPostDepartment">В отделение Новой Почты</label>
-            </li>
-                <li class="list-item delivery-type-newPostCourier">
-                    <input class="radio" id="newPostCourier" type="radio" name="delivery">
-                    <label class="radioBtn" for="newPostCourier">Курьером Новой Почты</label>
-            </li>
-            </ul>    
-        </form>
-        <p class="title">Заполните Данные:</p>
-        <form class="validation-form">
-            <div class="form-item">
-                <label class="form-label">
-                    <input class="username form-input" type="text" name="username" minlength="2" placeholder="Имя">
-                </label>
+        <div class="form-container">
+            <h1 class="heading">Оформление заказа</h1>
+            <form class="payment-form">
+                <p class="title">Выберете тип оплаты:</p>
+                <ul class="list">
+                    <li class="list-item cash">
+                        <input class="radio" id="cash" type="radio" name="payment">
+                        <label class="radioBtn" for="cash">Наличный расчёт</label>
+                    </li>
+                    <li class="list-item card">
+                        <input class="radio" id="card" type="radio" name="payment">
+                        <label class="radioBtn" for="card">Оплата на карту</label>
+                        </label>
+                    </li>
+                </ul>    
+            </form>
+            <p class="title">Выберете тип доставки:</p>
+            <form class="delivery-form">
+                <ul class="list delivery">
+                    <li class="list-item delivery-type-takeAway">                   
+                        <input class="radio" id="takeAway" type="radio" name="delivery">
+                        <label class="radioBtn" for="takeAway">Самовывоз</label>  
+                    </li>
+                    <li class="list-item delivery-type-courier">
+                        <input class="radio" id="courier" type="radio" name="delivery">
+                        <label class="radioBtn" for="courier">Курьером по Киеву</label>
+                    </li>
+                    <li class="list-item delivery-type-newPostDepartment">
+                        <input class="radio" id="newPostDepartment" type="radio" name="delivery">
+                        <label class="radioBtn" for="newPostDepartment">В отделение Новой Почты</label>
+                    </li>
+                    <li class="list-item delivery-type-newPostCourier">
+                        <input class="radio" id="newPostCourier" type="radio" name="delivery">
+                        <label class="radioBtn" for="newPostCourier">Курьером Новой Почты</label>
+                    </li>
+                </ul>    
+            </form>
+            <p class="title">Заполните Данные:</p>
+            <form class="validation-form">
+                <div class="form-item">
+                    <input class="username form-input" id="username" type="text" name="username" minlength="2" placeholder=" " autocomplete="off">
+                    <label class="form-label" for="username">Имя</label>
+                </div>
+                <div class="form-item">
+                    <input class="phone form-input" id="tel" type="tel" name="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" placeholder=" " autocomplete="off">
+                    <label class="form-label" for="tel">Номер телефона</label>
+                </div>
+                <div class="form-item">
+                    <input class="email form-input" id="e-mail" type="email" name="email" placeholder=" " autocomplete="off">
+                    <label class="form-label" for="e-mail">E-mail</label>
+                </div>
+                <div class="form-item">
+                    <input class="city form-input" id="city" type="text" name="city" placeholder=" " autocomplete="off">
+                    <label class="form-label" for="city">Город</label>
+                </div>
+                <div class="form-item">
+                    <input class="street form-input" id="street" type="text" name="street" placeholder=" " autocomplete="off">
+                    <label class="form-label" for="street">Улица, дом, квартира</label>
+
+                </div>
+                <div class="form-item area">
+                    <textarea class="textarea" id="comment" wrap="soft" name="comment"  maxlength="800" placeholder=" " ></textarea>
+                    <label class="comment" for="comment">Комментарий</label>
+                </div>
+            </form>
+            <div class="submit-btn">
+                <button class="submitBtn" type="submit">Оформить заказ</button>
             </div>
-            <div class="form-item">
-                <label class="form-label">
-                    <input class="phone form-input" type="tel" name="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{2}[0-9]{2}" placeholder="Номер телефона">
-                </label>
-          
-                <label class="form-label">
-                    <input class="email form-input" type="email" name="email" placeholder="E-mail">
-                </label>
-            </div>
-            <div class="form-item">
-                <label class="form-label">
-                    <input class="city form-input" type="text" name="city" placeholder="Город">
-                </label>
-           
-                <label class="form-label">
-                    <input class="street form-input" type="text" name="street" placeholder="Улица, дом, квартира">
-                </label>
-            </div>
-            <div>
-                <label >
-                    <textarea class="textarea" wrap="soft" name="comment"  maxlength="800" placeholder="Комментарий" ></textarea>
-                </label>
-            </div>
-            <button class="submitBtn" type="submit">Оформить заказ</button>
-        </form>
+        </div>
     </div>
     <script src="./index.js"></script>
 </body>

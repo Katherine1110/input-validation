@@ -5,12 +5,23 @@
     --active-item-text: #FFFFFF;
     --border: #F4F5F8;
     --submit-btn: #517DA3;
+    --text: #5E6575;
+    --main-bg: #E5E5E5;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  @media  screen and (min-width: 320px) and (max-width: 767px){
+body{
+    background: var(--main-bg);
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
     .container{
-        margin: 0 auto;
-        padding: 20px 30px 20px 30px
+        padding: 30px;
+    }
+
+    .form-container{
+        background: var(--active-item-text);
+        padding: 10px;
     }
 
     .heading{
@@ -19,20 +30,14 @@
         font-weight: normal;
         font-size: 24px;
         line-height: 32px;
-        letter-spacing: -0.333333px;
-        color: var(--heading-text-color); 
-        margin-top: 0;
-        margin-bottom: 25px; 
         text-align: center;
-    }
-
-    .payment-form{
-        margin-bottom: 30px;
+        letter-spacing: -0.333333px;
+        color: var(--heading-text-color);
+        margin-top: 0;
+        margin-bottom: 20px;
     }
 
     .title{
-        margin-top: 0px;
-        margin-bottom: 20px;
         font-family: Raleway;
         font-style: normal;
         font-weight: normal;
@@ -40,27 +45,23 @@
         line-height: 20px;
         letter-spacing: -0.333333px;
         color: var(--heading-text-color);
+        margin-top: 0;
+        margin-left: 5px;
     }
 
-    .radioBtn, .list-item{
-        cursor: pointer;    
-    }
-    
     .list{
-        list-style: none;
         margin-top: 0;
+        list-style: none;
         padding-left: 0;
-        max-width: 311px;
-    }
-    
-    .delivery-form{
-        margin-bottom: 40px;
+        display: flex;
+        flex-direction: column;
+       
     }
 
     .list-item{
+        width: 240px;
+        height: 50px;
         background: var(--list-item-bg);
-        width: 200;
-        height: 52px;
         display: flex;
         justify-content: center;
         align-items: center; 
@@ -70,7 +71,7 @@
         font-style: normal;
         font-weight: normal;
         font-size: 14px;
-        line-height: 20px;   
+        line-height: 20px; 
     }
 
     .list .list-item:not(:last-child){
@@ -83,173 +84,88 @@
             appearance: none;
             position: absolute;
     }
-    
+
     .chosen{
         background: var(--active-item);
         color: var(--active-item-text);
         text-decoration-line: underline;
     }
 
-    .form-input{
-        width: 260px;
-        height: 40px;
-        border: 1px solid var(--border); 
-        box-sizing: border-box;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-bottom: 15px;
+    .validation-form{
+        display: flex;
+        flex-direction: column;
+        width: 240px;
     }
-    
-    textarea{
-        width: 260px;
-        height: 95px;
-        resize: none;
-        border: 1px solid var(--border); 
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-top: 10px;
-        box-sizing: border-box;
-        margin-bottom: 22px;
-    }
-    
-    .submitBtn{
-        width: 260px;
-        height: 45px;
-        border: none;
-        background-color: var(--submit-btn);
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 16px;
-        line-height: 20px;
-        color: var(--active-item-text);
-    }       
-}
 
-@media screen and (min-width: 768px) and (max-width: 1440px) {
-    .container{
-        margin: 0 auto;
-        padding: 40px 50px 62px 50px
+    .form-input{
+        width: 218px;
+        border: 1px solid var(--border);
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        height: 25px;
     }
-    
-    .heading{
-        font-family: Playfair Display;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 32px;
-        letter-spacing: -0.333333px;
-        color: var(--heading-text-color); 
-        margin-top: 0;
-        margin-bottom: 42px; 
-    }
-    
-    .payment-form{
-        margin-bottom: 56px;
-    }
-    
-    .title{
-        margin-top: 0px;
-        margin-bottom: 20px;
+
+    .form-label{
+        position: relative;
+        top: -30px;
+        left: 10px;
         font-family: Raleway;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 20px;
-        letter-spacing: -0.333333px;
-        color: var(--heading-text-color);
-    }
-    
-    .radioBtn, .list-item{
-        cursor: pointer;    
-    }
-    
-    .list{
-        list-style: none;
-        margin-top: 0;
-        padding-left: 0;
-        display: flex;
-        width: 50%;
-    }
-    
-    .delivery-form{
-        margin-bottom: 40px;
-    }
-    
-    .list.delivery, .list.input{
-        flex-wrap: wrap;
-    }
-    
-    .list .list-item:nth-child(3), .list .list-item:nth-child(4){
-        margin-top: 13px;
-    }
-    
-    
-    .list .list-item:nth-child(3), .list .list-item:first-child{
-        margin-right: 16px;
-    }
-    
-    .list-item{
-        background: var(--list-item-bg);
-        width: 311px;
-        height: 62px;
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-        color: var(--heading-text-color);
-        letter-spacing: -0.333333px;
-        font-family: Raleway;
-        font-style: normal;
-        font-weight: normal;
+        color: var(--text);
         font-size: 14px;
-        line-height: 20px;   
+        line-height: 20px;
     }
-    
-    .radio{
-        -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            position: absolute;
+
+    .form-input:focus,
+    .textarea:focus{
+        outline-color: var(--active-item);
+       
     }
-    
-    .chosen{
-        background: var(--active-item);
-        color: var(--active-item-text);
-        text-decoration-line: underline;
+
+    .form-input:focus + .form-label,
+    .form-input:not(:placeholder-shown) + .form-label {
+        position: relative;
+        top: -47px;
+        left: 15px;
+        background: var(--active-item-text);
+        transition: 500ms var(--timing-function);
+        color: var(--text);
     }
-    
-    .form-input{
-        width: 311px;
-        height: 40px;
-        border: 1px solid var(--border); 
-        box-sizing: border-box;
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        margin-right: 15px;
-    }
-    
-    .form-item:not(:last-child){
-        margin-bottom: 17px;
-    }
-    
-    textarea{
-        width: 641px;
+
+    .textarea{
+        width: 240px;
         height: 95px;
         resize: none;
         border: 1px solid var(--border); 
-        padding-left: 16px;
-        padding-right: 16px;
+        padding-left: 10px;
+        padding-right: 10px;
         padding-top: 10px;
         box-sizing: border-box;
-        margin-bottom: 32px;
     }
-    
+
+    .comment{
+        position: relative;
+        top: -90px;
+        left: 10px;
+        font-family: Raleway;
+        color: var(--text);
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .textarea:focus + .comment,
+    .textarea:not(:placeholder-shown) + .comment{
+        position: relative;
+        top: -108px;
+        left: 15px;
+        background: var(--active-item-text);
+        color: var(--text);
+        transition: 500ms var(--timing-function);
+    }
+
     .submitBtn{
-        width: 352px;
+        width: 240px;
         height: 45px;
         border: none;
         background-color: var(--submit-btn);
@@ -259,6 +175,8 @@
         font-size: 16px;
         line-height: 20px;
         color: var(--active-item-text);
-    }        
+        margin-bottom: 10px;
+    }       
+    
 }
 

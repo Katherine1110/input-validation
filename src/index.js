@@ -1,4 +1,4 @@
-import './styles'
+
 const refs = {
     listItemCash: document.querySelector('.list-item.cash'),
     listItemCard: document.querySelector('.list-item.card'),
