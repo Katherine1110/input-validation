@@ -15,6 +15,11 @@ const refs = {
     validationForm: document.querySelector('.validation-form'),
     submitBtn: document.querySelector('.submitBtn'),
     formInput: document.querySelectorAll('.form-input'),
+    inputPhone: document.querySelector('.phone'),
+    inputEmail: document.querySelector('.email'),
+    inputCity: document.querySelector('.city'),
+    inputStreet: document.querySelector('.street'),
+    inputUsername: document.querySelector('.username'),
 }
 
 refs.inputCash.addEventListener('change', onInputPaymentChange)
@@ -23,7 +28,8 @@ refs.inputNewPostDepartment.addEventListener('change', onInputDeliveryChange)
 refs.inputNewPostCourier.addEventListener('change', onInputDeliveryChange)
 refs.inputCourier.addEventListener('change', onInputDeliveryChange)
 refs.inputTakeAway.addEventListener('change', onInputDeliveryChange)
-refs.validationForm.addEventListener('submit', onSubmitBtnClick)
+// refs.validationForm.addEventListener('submit', onSubmitBtnClick)
+// refs.submitBtn.addEventListener('submit', onSubmitBtnClick())
 
 function onInputPaymentChange(event){
     let target = event.target;
@@ -37,7 +43,7 @@ function onInputPaymentChange(event){
             refs.listItemCash.classList.remove('chosen')
             break;
     }
-    console.log(target);
+    console.log(target.value);
 }
 
 function onInputDeliveryChange(event){
@@ -72,13 +78,15 @@ switch(target.id){
 
 function onSubmitBtnClick(event){
     // event.preventDefault()
-
+   
     for (let i = 0; i < refs.formInput.length; i++) {
+        if(refs.formInput[i].value){
+            refs.formInput[i].setAttribute(" ")
+            refs.formInput[i].style.borderColor="green"
+        }
         if(!refs.formInput[i].value){
             refs.formInput[i].setAttribute("placeholder", 'Это поле должно быть заполнено')
             refs.formInput[i].style.borderColor="red"
         }   
     }
-
-    return
 }
