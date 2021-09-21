@@ -285,6 +285,7 @@ function onSubmitBtnClick(event) {
     if (!refs.formInput[i].value) {
       refs.formInput[i].setAttribute("placeholder", 'Это поле должно быть заполнено');
       refs.formInput[i].style.borderColor = "red";
+      refs.formLabel[i].style.visibility = "hidden";
     }
 
     if (refs.formInput[i].value) {
@@ -320,7 +321,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52705" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62307" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
