@@ -16,7 +16,7 @@ const refs = {
     submitBtn: document.querySelector('.submitBtn'),
     formInput: document.querySelectorAll('.form-input'),
     formLabel: document.querySelectorAll('.form-label'),
-    // inputPhone: document.querySelector('.phone'),
+    inputPhone: document.querySelector('.phone'),
     // inputEmail: document.querySelector('.email'),
     // inputCity: document.querySelector('.city'),
     // inputStreet: document.querySelector('.street'),
@@ -78,18 +78,15 @@ switch(target.id){
 
 function onSubmitBtnClick(event){
     event.preventDefault()
-
+    // this.formLabel
     // console.log(refs.inputUsername.value);
-   
     for (let i = 0; i < refs.formInput.length; i++) {
         if(!refs.formInput[i].value){
             refs.formInput[i].setAttribute("placeholder", 'Это поле должно быть заполнено')
             refs.formInput[i].style.borderColor="red"
-
         }   
         if(refs.formInput[i].value){
-            refs.formInput[i].style.borderColor="#87B9E7" 
-            refs.formLabel.value.style.opacity = '0';
+            refs.formInput[i].style.borderColor="#87B9E7"
         }
 
         
