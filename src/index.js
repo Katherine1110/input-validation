@@ -84,6 +84,8 @@ function onSubmitBtnClick(event){
         if(!refs.formInput[i].value){
             refs.formInput[i].setAttribute("placeholder", 'Это поле должно быть заполнено')
             refs.formInput[i].style.borderColor="red"
+            refs.formLabel[i].style.visibility="hidden"
+
         }   
         if(refs.formInput[i].value){
             refs.formInput[i].style.borderColor="#87B9E7"
