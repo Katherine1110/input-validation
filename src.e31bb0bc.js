@@ -210,8 +210,8 @@ var refs = {
   validationForm: document.querySelector('.validation-form'),
   submitBtn: document.querySelector('.submitBtn'),
   formInput: document.querySelectorAll('.form-input'),
-  formLabel: document.querySelectorAll('.form-label') // inputPhone: document.querySelector('.phone'),
-  // inputEmail: document.querySelector('.email'),
+  formLabel: document.querySelectorAll('.form-label'),
+  inputPhone: document.querySelector('.phone') // inputEmail: document.querySelector('.email'),
   // inputCity: document.querySelector('.city'),
   // inputStreet: document.querySelector('.street'),
   // inputUsername: document.querySelector('.username'),
@@ -278,7 +278,8 @@ function onInputDeliveryChange(event) {
 }
 
 function onSubmitBtnClick(event) {
-  event.preventDefault(); // console.log(refs.inputUsername.value);
+  event.preventDefault(); // this.formLabel
+  // console.log(refs.inputUsername.value);
 
   for (var i = 0; i < refs.formInput.length; i++) {
     if (!refs.formInput[i].value) {
@@ -288,7 +289,6 @@ function onSubmitBtnClick(event) {
 
     if (refs.formInput[i].value) {
       refs.formInput[i].style.borderColor = "#87B9E7";
-      refs.formLabel.value.style.opacity = '0';
     }
   }
 }
@@ -320,7 +320,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49609" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52705" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
