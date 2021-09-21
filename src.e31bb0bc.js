@@ -209,15 +209,20 @@ var refs = {
   inputNewPostCourier: document.querySelector('#newPostCourier'),
   validationForm: document.querySelector('.validation-form'),
   submitBtn: document.querySelector('.submitBtn'),
-  formInput: document.querySelectorAll('.form-input')
+  formInput: document.querySelectorAll('.form-input'),
+  inputPhone: document.querySelector('.phone'),
+  inputEmail: document.querySelector('.email'),
+  inputCity: document.querySelector('.city'),
+  inputStreet: document.querySelector('.street'),
+  inputUsername: document.querySelector('.username')
 };
 refs.inputCash.addEventListener('change', onInputPaymentChange);
 refs.inputCard.addEventListener('change', onInputPaymentChange);
 refs.inputNewPostDepartment.addEventListener('change', onInputDeliveryChange);
 refs.inputNewPostCourier.addEventListener('change', onInputDeliveryChange);
 refs.inputCourier.addEventListener('change', onInputDeliveryChange);
-refs.inputTakeAway.addEventListener('change', onInputDeliveryChange);
-refs.validationForm.addEventListener('submit', onSubmitBtnClick);
+refs.inputTakeAway.addEventListener('change', onInputDeliveryChange); // refs.validationForm.addEventListener('submit', onSubmitBtnClick)
+// refs.submitBtn.addEventListener('submit', onSubmitBtnClick())
 
 function onInputPaymentChange(event) {
   var target = event.target;
@@ -234,7 +239,7 @@ function onInputPaymentChange(event) {
       break;
   }
 
-  console.log(target);
+  console.log(target.value);
 }
 
 function onInputDeliveryChange(event) {
@@ -274,13 +279,16 @@ function onInputDeliveryChange(event) {
 function onSubmitBtnClick(event) {
   // event.preventDefault()
   for (var i = 0; i < refs.formInput.length; i++) {
+    if (refs.formInput[i].value) {
+      refs.formInput[i].setAttribute(" ");
+      refs.formInput[i].style.borderColor = "green";
+    }
+
     if (!refs.formInput[i].value) {
       refs.formInput[i].setAttribute("placeholder", 'Это поле должно быть заполнено');
       refs.formInput[i].style.borderColor = "red";
     }
   }
-
-  return;
 }
 },{"./styles":"styles/index.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -310,7 +318,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53809" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54477" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
