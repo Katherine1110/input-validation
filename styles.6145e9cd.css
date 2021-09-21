@@ -176,6 +176,7 @@ body{
         line-height: 20px;
         color: var(--active-item-text);
         margin-bottom: 10px;
+        cursor: pointer;
     }       
     
 }
@@ -373,6 +374,7 @@ body{
         line-height: 20px;
         color: var(--active-item-text);
         margin-bottom: 10px;
+        cursor: pointer;
     }       
 }
 
@@ -579,6 +581,7 @@ body{
         line-height: 20px;
         color: var(--active-item-text);
         margin-bottom: 10px;
+        cursor: pointer;
     }
 }
 
@@ -785,6 +788,7 @@ body{
         line-height: 20px;
         color: var(--active-item-text);
         margin-bottom: 10px;
+        cursor: pointer;
     }
 }
 

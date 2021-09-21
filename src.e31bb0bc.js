@@ -210,19 +210,20 @@ var refs = {
   validationForm: document.querySelector('.validation-form'),
   submitBtn: document.querySelector('.submitBtn'),
   formInput: document.querySelectorAll('.form-input'),
-  inputPhone: document.querySelector('.phone'),
-  inputEmail: document.querySelector('.email'),
-  inputCity: document.querySelector('.city'),
-  inputStreet: document.querySelector('.street'),
-  inputUsername: document.querySelector('.username')
+  formLabel: document.querySelectorAll('.form-label') // inputPhone: document.querySelector('.phone'),
+  // inputEmail: document.querySelector('.email'),
+  // inputCity: document.querySelector('.city'),
+  // inputStreet: document.querySelector('.street'),
+  // inputUsername: document.querySelector('.username'),
+
 };
 refs.inputCash.addEventListener('change', onInputPaymentChange);
 refs.inputCard.addEventListener('change', onInputPaymentChange);
 refs.inputNewPostDepartment.addEventListener('change', onInputDeliveryChange);
 refs.inputNewPostCourier.addEventListener('change', onInputDeliveryChange);
 refs.inputCourier.addEventListener('change', onInputDeliveryChange);
-refs.inputTakeAway.addEventListener('change', onInputDeliveryChange); // refs.validationForm.addEventListener('submit', onSubmitBtnClick)
-// refs.submitBtn.addEventListener('submit', onSubmitBtnClick())
+refs.inputTakeAway.addEventListener('change', onInputDeliveryChange);
+refs.validationForm.addEventListener('submit', onSubmitBtnClick);
 
 function onInputPaymentChange(event) {
   var target = event.target;
@@ -234,7 +235,7 @@ function onInputPaymentChange(event) {
       break;
 
     case 'card':
-      refs.listItemCard.classList.toggle('chosen');
+      refs.listItemCard.classList.add('chosen');
       refs.listItemCash.classList.remove('chosen');
       break;
   }
@@ -277,16 +278,17 @@ function onInputDeliveryChange(event) {
 }
 
 function onSubmitBtnClick(event) {
-  // event.preventDefault()
-  for (var i = 0; i < refs.formInput.length; i++) {
-    if (refs.formInput[i].value) {
-      refs.formInput[i].setAttribute(" ");
-      refs.formInput[i].style.borderColor = "green";
-    }
+  event.preventDefault(); // console.log(refs.inputUsername.value);
 
+  for (var i = 0; i < refs.formInput.length; i++) {
     if (!refs.formInput[i].value) {
       refs.formInput[i].setAttribute("placeholder", 'Это поле должно быть заполнено');
       refs.formInput[i].style.borderColor = "red";
+    }
+
+    if (refs.formInput[i].value) {
+      refs.formInput[i].style.borderColor = "#87B9E7";
+      refs.formLabel.value.style.opacity = '0';
     }
   }
 }
@@ -318,7 +320,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54477" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49609" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
