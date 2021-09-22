@@ -211,11 +211,11 @@ var refs = {
   submitBtn: document.querySelector('.submitBtn'),
   formInput: document.querySelectorAll('.form-input'),
   formLabel: document.querySelectorAll('.form-label'),
-  inputPhone: document.querySelector('.phone') // inputEmail: document.querySelector('.email'),
-  // inputCity: document.querySelector('.city'),
-  // inputStreet: document.querySelector('.street'),
-  // inputUsername: document.querySelector('.username'),
-
+  inputPhone: document.querySelector('.phone'),
+  inputEmail: document.querySelector('.email'),
+  inputCity: document.querySelector('.city'),
+  inputStreet: document.querySelector('.street'),
+  inputUsername: document.querySelector('.username')
 };
 refs.inputCash.addEventListener('change', onInputPaymentChange);
 refs.inputCard.addEventListener('change', onInputPaymentChange);
@@ -283,7 +283,11 @@ function onSubmitBtnClick(event) {
 
   for (var i = 0; i < refs.formInput.length; i++) {
     if (!refs.formInput[i].value) {
-      refs.formInput[i].setAttribute("placeholder", 'Это поле должно быть заполнено');
+      refs.inputEmail.setAttribute("placeholder", 'Введите email');
+      refs.inputCity.setAttribute("placeholder", 'Введите название города');
+      refs.inputStreet.setAttribute("placeholder", 'Название улмцы, № дома, № квартиры');
+      refs.inputUsername.setAttribute("placeholder", 'Введите имя');
+      refs.inputPhone.setAttribute("placeholder", 'Введите номер телефона (123)-456-78-90');
       refs.formInput[i].style.borderColor = "red";
       refs.formLabel[i].style.visibility = "hidden";
     }
@@ -321,7 +325,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62307" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62703" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
