@@ -17,7 +17,7 @@ export function validateForm() {
       $(".form-field").css("marginBottom", "27px");
     }
 
-    if (username == "" || username.length < 2) {
+    if (username === "" || username.length < 2) {
       $(".username.form-input").css("borderColor", "red");
 
       $(".username")
@@ -26,13 +26,13 @@ export function validateForm() {
         .show(1000);
 
       usernameValid = false;
-    } else if (username.length >= 2) {
+    } else if (username !== "" && username.length >= 2) {
       $(".err").hide(1000);
       $(".username.form-input").removeAttr("style");
       usernameValid = true;
     }
 
-    if (phone == "") {
+    if (phone === "") {
       $(".phone")
         .parent()
         .append("<p class=err>This field is required</p>")
@@ -54,15 +54,17 @@ export function validateForm() {
           .show(1000);
 
         $(".phone.form-input").css("borderColor", "red");
+
         phoneValid = false;
-      } else {
-        $(".err").hide(1000).remove();
+      } else if (validatePhone) {
+        $(".err").hide(1000);
         $(".phone.form-input").removeAttr("style");
         phoneValid = true;
       }
+      return;
     }
 
-    if (email == "" || email.length < 1) {
+    if (email === "") {
       $(".email")
         .parent()
         .append("<p class=err>This field is required</p>")
@@ -82,14 +84,14 @@ export function validateForm() {
         $(".email.form-input").css("borderColor", "red");
 
         emailValid = false;
-      } else {
+      } else if (validateEmail) {
         $(".err").hide(1000);
         $(".email.form-input").removeAttr("style");
         emailValid = true;
       }
     }
 
-    if (city == "" || city.length < 1) {
+    if (city === "" || city.length < 1) {
       $(".city")
         .parent()
         .append("<p class=err>This field is required</p>")
@@ -98,12 +100,12 @@ export function validateForm() {
       $(".city.form-input").css("borderColor", "red");
       cityValid = false;
     } else {
-      $(".err").hide(1000).remove();
+      $(".err").hide(1000);
       $(".city.form-input").removeAttr("style");
       cityValid = true;
     }
 
-    if (street == "" || street.length < 1) {
+    if (street === "" || street.length < 1) {
       $(".street")
         .parent()
         .append("<p class=err>This field is required</p>")
@@ -112,7 +114,7 @@ export function validateForm() {
       $(".street.form-input").css("borderColor", "red");
       streetValid = false;
     } else {
-      $(".err").hide(1000).remove();
+      $(".err").hide(1000);
       $(".street.form-input").removeAttr("style");
       streetValid = true;
     }

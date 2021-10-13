@@ -75,18 +75,14 @@
 }
 
 .err {
-  position: relative;
+  position: absolute;
 
-  top: -13px;
+  top: 42px;
+  left: 15px;
   color: rgb(212, 130, 130);
   margin-top: 0px;
   font-size: 12px;
-
-  @media screen and (min-width: $tablet) {
-    position: absolute;
-    top: 42px;
-    left: 20px;
-  }
+  width: 100%;
 }
 
 label.validation {
