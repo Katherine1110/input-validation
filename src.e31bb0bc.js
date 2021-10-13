@@ -278,8 +278,7 @@ function onInputDeliveryChange(event) {
 }
 
 function onSubmitBtnClick(event) {
-  event.preventDefault(); // this.formLabel
-  // console.log(refs.inputUsername.value);
+  event.preventDefault();
 
   for (var i = 0; i < refs.formInput.length; i++) {
     if (!refs.formInput[i].value) {
@@ -325,7 +324,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62703" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60571" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

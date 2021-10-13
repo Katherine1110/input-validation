@@ -117,79 +117,173 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
-var bundleURL = null;
+})({"js/jquery-components/payment-form.js":[function(require,module,exports) {
+"use strict";
 
-function getBundleURLCached() {
-  if (!bundleURL) {
-    bundleURL = getBundleURL();
-  }
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.paymentForm = paymentForm;
 
-  return bundleURL;
-}
-
-function getBundleURL() {
-  // Attempt to find the URL of the current script and use that as the base URL
-  try {
-    throw new Error();
-  } catch (err) {
-    var matches = ('' + err.stack).match(/(https?|file|ftp|chrome-extension|moz-extension):\/\/[^)\n]+/g);
-
-    if (matches) {
-      return getBaseURL(matches[0]);
+function paymentForm() {
+  $('.payment-form input[type="radio"]').on("click", function () {
+    if ($("input.cash:checked").val()) {
+      $(".cashRadioBtn").addClass("chosen");
+      $(".cardRadioBtn").removeClass("chosen");
+    } else {
+      $(".cardRadioBtn").addClass("chosen");
+      $(".cashRadioBtn").removeClass("chosen");
     }
-  }
-
-  return '/';
+  });
 }
+},{}],"js/jquery-components/delivery-form.js":[function(require,module,exports) {
+"use strict";
 
-function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.deliveryForm = deliveryForm;
+
+function deliveryForm() {
+  $('.delivery-form input[type="radio"]').on("click", function () {
+    if ($("input.takeAway:checked").val()) {
+      $(".takeAway-radioBtn").addClass("chosen");
+      $(".courier-radioBtn").removeClass("chosen");
+      $(".newPostDepartment-radioBtn").removeClass("chosen");
+      $(".newPostCourier-radioBtn").removeClass("chosen");
+    } else if ($("input.courier:checked").val()) {
+      $(".courier-radioBtn").addClass("chosen");
+      $(".takeAway-radioBtn").removeClass("chosen");
+      $(".newPostDepartment-radioBtn").removeClass("chosen");
+      $(".newPostCourier-radioBtn").removeClass("chosen");
+    } else if ($("input.newPostDepartment:checked").val()) {
+      $(".newPostDepartment-radioBtn").addClass("chosen");
+      $(".takeAway-radioBtn").removeClass("chosen");
+      $(".courier-radioBtn").removeClass("chosen");
+      $(".newPostCourier-radioBtn").removeClass("chosen");
+    } else {
+      $(".newPostCourier-radioBtn").addClass("chosen");
+      $(".takeAway-radioBtn").removeClass("chosen");
+      $(".courier-radioBtn").removeClass("chosen");
+      $(".newPostDepartment-radioBtn").removeClass("chosen");
+    }
+  });
 }
+},{}],"js/jquery-components/validation-form.js":[function(require,module,exports) {
+"use strict";
 
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-},{}],"../node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
-var bundle = require('./bundle-url');
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.validateForm = validateForm;
 
-function updateLink(link) {
-  var newLink = link.cloneNode();
+function validateForm() {
+  var usernameValid = false;
+  var phoneValid = false;
+  var emailValid = false;
+  var cityValid = false;
+  var streetValid = false;
+  $(".validation-form").submit(function (e) {
+    e.preventDefault();
+    var username = $(".username").val();
+    var phone = $(".phone").val();
+    var email = $(".email").val();
+    var city = $(".city").val();
+    var street = $(".street").val();
 
-  newLink.onload = function () {
-    link.remove();
-  };
+    if ($(".form-field:has(p)")) {
+      $(".form-field").css("marginBottom", "27px");
+    }
 
-  newLink.href = link.href.split('?')[0] + '?' + Date.now();
-  link.parentNode.insertBefore(newLink, link.nextSibling);
-}
+    if (username == "" || username.length < 2) {
+      $(".username.form-input").css("borderColor", "red");
+      $(".username").parent().append("<p class=err>This field is required</p>").show(1000);
+      usernameValid = false;
+    } else if (username.length >= 2) {
+      $(".err").hide(1000);
+      $(".username.form-input").removeAttr("style");
+      usernameValid = true;
+    }
 
-var cssTimeout = null;
+    if (phone == "") {
+      $(".phone").parent().append("<p class=err>This field is required</p>").show();
+      $(".phone.form-input").css("borderColor", "red");
+      phoneValid = false;
+    } else {
+      var regExPhone = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+      var validatePhone = regExPhone.test(phone);
 
-function reloadCSS() {
-  if (cssTimeout) {
-    return;
-  }
-
-  cssTimeout = setTimeout(function () {
-    var links = document.querySelectorAll('link[rel="stylesheet"]');
-
-    for (var i = 0; i < links.length; i++) {
-      if (bundle.getBaseURL(links[i].href) === bundle.getBundleURL()) {
-        updateLink(links[i]);
+      if (!validatePhone) {
+        $(".err").remove();
+        $(".phone").parent().append("<p class=err>Enter phone number +380XXXXXXXXX</p>").show(1000);
+        $(".phone.form-input").css("borderColor", "red");
+        phoneValid = false;
+      } else {
+        $(".err").hide(1000).remove();
+        $(".phone.form-input").removeAttr("style");
+        phoneValid = true;
       }
     }
 
-    cssTimeout = null;
-  }, 50);
+    if (email == "" || email.length < 1) {
+      $(".email").parent().append("<p class=err>This field is required</p>").show(2000);
+      $(".email.form-input").css("borderColor", "red");
+      emailValid = false;
+    } else {
+      var regExEmail = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+      var validateEmail = regExEmail.test(email);
+
+      if (!validateEmail) {
+        $(".err").parent().append("<p class=err>This field is required</p>").show();
+        $(".email.form-input").css("borderColor", "red");
+        emailValid = false;
+      } else {
+        $(".err").hide(1000);
+        $(".email.form-input").removeAttr("style");
+        emailValid = true;
+      }
+    }
+
+    if (city == "" || city.length < 1) {
+      $(".city").parent().append("<p class=err>This field is required</p>").show();
+      $(".city.form-input").css("borderColor", "red");
+      cityValid = false;
+    } else {
+      $(".err").hide(1000).remove();
+      $(".city.form-input").removeAttr("style");
+      cityValid = true;
+    }
+
+    if (street == "" || street.length < 1) {
+      $(".street").parent().append("<p class=err>This field is required</p>").show();
+      $(".street.form-input").css("borderColor", "red");
+      streetValid = false;
+    } else {
+      $(".err").hide(1000).remove();
+      $(".street.form-input").removeAttr("style");
+      streetValid = true;
+    }
+
+    if (usernameValid == true, phoneValid == true, emailValid == true, cityValid == true, streetValid == true) {
+      $(".validation-form").unbind("submit").submit();
+    }
+  });
 }
+},{}],"js/index-jquery.js":[function(require,module,exports) {
+"use strict";
 
-module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"styles/index.css":[function(require,module,exports) {
-var reloadCSS = require('_css_loader');
+var _paymentForm = require("./jquery-components/payment-form");
 
-module.hot.dispose(reloadCSS);
-module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var _deliveryForm = require("./jquery-components/delivery-form");
+
+var _validationForm = require("./jquery-components/validation-form");
+
+$(function () {
+  (0, _paymentForm.paymentForm)();
+  (0, _deliveryForm.deliveryForm)();
+  (0, _validationForm.validateForm)();
+});
+},{"./jquery-components/payment-form":"js/jquery-components/payment-form.js","./jquery-components/delivery-form":"js/jquery-components/delivery-form.js","./jquery-components/validation-form":"js/jquery-components/validation-form.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +311,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61295" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61599" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -393,5 +487,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/styles.6145e9cd.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index-jquery.js"], null)
+//# sourceMappingURL=/index-jquery.8d370f30.js.map
