@@ -200,7 +200,7 @@ function validateForm() {
       $(".username").parent().append("<p class=err>This field is required</p>").show(1000);
       usernameValid = false;
     } else if (username !== "" && username.length >= 2) {
-      $(".err").hide(1000);
+      $(".err").hide(1000).remove();
       $(".username.form-input").removeAttr("style");
       usernameValid = true;
     }
@@ -222,9 +222,8 @@ function validateForm() {
         $(".err").hide(1000);
         $(".phone.form-input").removeAttr("style");
         phoneValid = true;
-      }
+      } //   return;
 
-      return;
     }
 
     if (email === "") {
@@ -266,7 +265,7 @@ function validateForm() {
       streetValid = true;
     }
 
-    if (usernameValid == true, phoneValid == true, emailValid == true, cityValid == true, streetValid == true) {
+    if (usernameValid === true, phoneValid === true, emailValid === true, cityValid === true, streetValid === true) {
       $(".validation-form").unbind("submit").submit();
     }
   });
@@ -313,7 +312,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62113" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60682" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
