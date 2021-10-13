@@ -1,0 +1,160 @@
+@import "../utils/variables";
+@import "../utils/breakpoints";
+
+.title {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  color: $heading-text-color;
+  margin-bottom: 32px;
+  margin-top: 0px;
+}
+
+input.cash {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+.card,
+.takeAway,
+.courier,
+.newPostDepartment,
+.newPostCourier {
+  @extend input.cash;
+}
+
+div.chosen {
+  background: $active-item;
+  color: $active-item-text;
+  text-decoration: underline;
+}
+
+.payment-form {
+  margin-bottom: 56px;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+  }
+}
+
+.payment-form__radioBtn {
+  min-width: 236px;
+  max-width: 311px;
+  height: 63px;
+  background: $list-item-bg;
+  color: $heading-text-color;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 143%;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 236px;
+  }
+
+  &:not(:last-child) {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+}
+
+label.delivery {
+  display: flex;
+  justify-content: center;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  width: 236px;
+  height: 63px;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 311px;
+  }
+}
+
+.delivery-form {
+  margin-bottom: 40px;
+  max-width: 960px;
+
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.delivery-form__radioBtn {
+  cursor: pointer;
+  min-width: 236px;
+  max-width: 311px;
+  height: 63px;
+  background: $list-item-bg;
+  color: $heading-text-color;
+
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 143%;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  @media screen and (max-width: 767px) {
+    width: 236px;
+  }
+
+  &:not(:last-child) {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 15px;
+    }
+  }
+
+  @media screen and (min-width: $tablet) {
+    &:nth-child(2n + 1) {
+      margin-right: 16px;
+    }
+
+    &:nth-child(-n + 2) {
+      margin-bottom: 16px;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+.title {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.3px;
+  color: #2d2d41;
+  margin-bottom: 32px;
+  margin-top: 0px;
+}
+
+input.cash, .card,
+.takeAway,
+.courier,
+.newPostDepartment,
+.newPostCourier {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+}
+
+div.chosen {
+  background: #87b9e7;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.payment-form {
+  margin-bottom: 56px;
+}
+
+.radioBtn {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .radioBtn {
+    width: 240px;
+    height: 62px;
+    background: #f8f8f8;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .radioBtn:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .radioBtn:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+.radioBtn label {
+  display: inline-block;
+  text-align: center;
+  width: inherit;
+  height: inherit;
+  padding-top: 21px;
+  padding-bottom: 21px;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 143%;
+}
+
+.delivery-form {
+  margin-bottom: 40px;
+}
+/*# sourceMappingURL=delivery-form.css.map */

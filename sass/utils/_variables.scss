@@ -1,0 +1,20 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+$heading-text-color: #2d2d41;
+$list-item-bg: #f8f8f8;
+$active-item: #87b9e7;
+$active-item-text: #ffffff;
+$border: #f4f5f8;
+$submit-btn: #517da3;
+$text: #5e6575;
+$main-bg: #e5e5e5;
+$timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+$border: #c8c8c8;

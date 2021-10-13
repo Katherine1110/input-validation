@@ -1,0 +1,172 @@
+.validation-form {
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media screen and (min-width: $tablet) and (max-width: 1023px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 490px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 638px;
+  }
+}
+
+.form-field {
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 17px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    &:first-child {
+      width: 490px;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    &:first-child {
+      width: 638px;
+    }
+  }
+}
+
+.form-input:focus + label.validation,
+.form-input:not(:placeholder-shown) + label.validation {
+  display: inline-block;
+  width: max-content;
+  right: -5.78px;
+  top: -25%;
+  background: $active-item-text;
+  transition: 500ms $timing-function;
+  padding-left: 3px;
+  padding-right: 3px;
+  outline: $active-item;
+}
+
+.form-input {
+  padding-left: 20px;
+  padding-right: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+  border: 1px solid $border;
+  width: 238px;
+  margin: 0;
+
+  &:focus,
+  &:hover {
+    outline-color: $active-item;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 311px;
+  }
+}
+
+.err {
+  position: relative;
+
+  top: -13px;
+  color: rgb(212, 130, 130);
+  margin-top: 0px;
+  font-size: 12px;
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    top: 42px;
+    left: 20px;
+  }
+}
+
+label.validation {
+  position: absolute;
+  left: 21.33px;
+  top: calc(50% - 19.5px / 2 - 0.25px);
+  color: $text;
+}
+
+.form-field-comment {
+  position: relative;
+
+  //   display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.textarea {
+  width: 236px;
+  height: 96px;
+  resize: none;
+  border: 1px solid $border;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  padding-right: 16px;
+
+  &:focus,
+  &:hover {
+    outline-color: $active-item;
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 490px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 638px;
+  }
+}
+
+.comment {
+  position: absolute;
+  //   display: inline-block;
+  left: 20px;
+  top: calc(50% - 20px / 2 - 27.75px);
+  color: $text;
+  display: inline-block;
+  width: max-content;
+}
+
+.textarea:focus + label.comment,
+.textarea:not(:placeholder-shown) + label.comment {
+  top: -10%;
+  right: -6px;
+  background: $active-item-text;
+  transition: 500ms $timing-function;
+  padding-left: 3px;
+  padding-right: 3px;
+  outline: $active-item;
+}
+
+.submitBtn {
+  box-sizing: border-box;
+  width: 238px;
+  height: 45px;
+  padding: 0;
+  border: none;
+  background-color: $submit-btn;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  color: $active-item-text;
+  margin-bottom: 10px;
+  cursor: pointer;
+
+  @media screen and (min-width: 1024px) {
+    width: 311px;
+  }
+}
