@@ -27,7 +27,7 @@ export function validateForm() {
 
       usernameValid = false;
     } else if (username !== "" && username.length >= 2) {
-      $(".err").hide(1000);
+      $(".err").hide(1000).remove();
       $(".username.form-input").removeAttr("style");
       usernameValid = true;
     }
@@ -61,7 +61,7 @@ export function validateForm() {
         $(".phone.form-input").removeAttr("style");
         phoneValid = true;
       }
-      return;
+      //   return;
     }
 
     if (email === "") {
@@ -120,11 +120,11 @@ export function validateForm() {
     }
 
     if (
-      (usernameValid == true,
-      phoneValid == true,
-      emailValid == true,
-      cityValid == true,
-      streetValid == true)
+      (usernameValid === true,
+      phoneValid === true,
+      emailValid === true,
+      cityValid === true,
+      streetValid === true)
     ) {
       $(".validation-form").unbind("submit").submit();
     }
