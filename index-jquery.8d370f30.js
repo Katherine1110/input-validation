@@ -195,17 +195,17 @@ function validateForm() {
       $(".form-field").css("marginBottom", "27px");
     }
 
-    if (username == "" || username.length < 2) {
+    if (username === "" || username.length < 2) {
       $(".username.form-input").css("borderColor", "red");
       $(".username").parent().append("<p class=err>This field is required</p>").show(1000);
       usernameValid = false;
-    } else if (username.length >= 2) {
+    } else if (username !== "" && username.length >= 2) {
       $(".err").hide(1000);
       $(".username.form-input").removeAttr("style");
       usernameValid = true;
     }
 
-    if (phone == "") {
+    if (phone === "") {
       $(".phone").parent().append("<p class=err>This field is required</p>").show();
       $(".phone.form-input").css("borderColor", "red");
       phoneValid = false;
@@ -218,14 +218,16 @@ function validateForm() {
         $(".phone").parent().append("<p class=err>Enter phone number +380XXXXXXXXX</p>").show(1000);
         $(".phone.form-input").css("borderColor", "red");
         phoneValid = false;
-      } else {
-        $(".err").hide(1000).remove();
+      } else if (validatePhone) {
+        $(".err").hide(1000);
         $(".phone.form-input").removeAttr("style");
         phoneValid = true;
       }
+
+      return;
     }
 
-    if (email == "" || email.length < 1) {
+    if (email === "") {
       $(".email").parent().append("<p class=err>This field is required</p>").show(2000);
       $(".email.form-input").css("borderColor", "red");
       emailValid = false;
@@ -237,29 +239,29 @@ function validateForm() {
         $(".err").parent().append("<p class=err>This field is required</p>").show();
         $(".email.form-input").css("borderColor", "red");
         emailValid = false;
-      } else {
+      } else if (validateEmail) {
         $(".err").hide(1000);
         $(".email.form-input").removeAttr("style");
         emailValid = true;
       }
     }
 
-    if (city == "" || city.length < 1) {
+    if (city === "" || city.length < 1) {
       $(".city").parent().append("<p class=err>This field is required</p>").show();
       $(".city.form-input").css("borderColor", "red");
       cityValid = false;
     } else {
-      $(".err").hide(1000).remove();
+      $(".err").hide(1000);
       $(".city.form-input").removeAttr("style");
       cityValid = true;
     }
 
-    if (street == "" || street.length < 1) {
+    if (street === "" || street.length < 1) {
       $(".street").parent().append("<p class=err>This field is required</p>").show();
       $(".street.form-input").css("borderColor", "red");
       streetValid = false;
     } else {
-      $(".err").hide(1000).remove();
+      $(".err").hide(1000);
       $(".street.form-input").removeAttr("style");
       streetValid = true;
     }
@@ -311,7 +313,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61599" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62113" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
